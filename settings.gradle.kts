@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "NovelReader"
+include(":app")
+include(":core:common")
+include(":core:network")
+include(":core:database")
+include(":core:model")
+include(":core:parser")
+include(":feature:bookshelf")
+include(":feature:reader")
+include(":feature:source")
+include(":feature:search")
+include(":feature:settings")
