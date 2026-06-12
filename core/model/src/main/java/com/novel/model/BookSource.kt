@@ -1,13 +1,17 @@
 package com.novel.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "book_sources")
 data class BookSource(
-    @SerializedName("bookSourceName")
-    val bookSourceName: String = "",
-    
+    @PrimaryKey
     @SerializedName("bookSourceUrl")
     val bookSourceUrl: String = "",
+    
+    @SerializedName("bookSourceName")
+    val bookSourceName: String = "",
     
     @SerializedName("bookSourceGroup")
     val bookSourceGroup: String = "",
