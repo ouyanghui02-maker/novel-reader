@@ -24,7 +24,7 @@ data class Book(
     
     val bookInfo: String,
     
-    val chapterList: List<Chapter> = emptyList(),
+    val chapterList: String = "[]",
     
     val chapterCount: Int = 0,
     
