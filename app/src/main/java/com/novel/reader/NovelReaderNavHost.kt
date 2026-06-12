@@ -2,7 +2,7 @@ package com.novel.reader
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
@@ -23,10 +23,10 @@ import com.novel.settings.SettingsScreen
 import com.novel.source.SourceScreen
 
 sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
-    object Bookshelf : Screen("bookshelf", "书架", Icons.Default.Book)
+    object Bookshelf : Screen("bookshelf", "书架", Icons.Default.MenuBook)
     object Discover : Screen("discover", "发现", Icons.Default.Explore)
     object Profile : Screen("profile", "我的", Icons.Default.Person)
-    object Reader : Screen("reader/{bookUrl}", "阅读", Icons.Default.Book)
+    object Reader : Screen("reader/{bookUrl}", "阅读", Icons.Default.MenuBook)
     object Search : Screen("search", "搜索", Icons.Default.Explore)
     object Source : Screen("source", "书源管理", Icons.Default.Person)
     object Settings : Screen("settings", "设置", Icons.Default.Person)
