@@ -4,15 +4,11 @@
 
 | 模块 | 测试类 | 测试用例数 | 状态 |
 |------|--------|-----------|------|
-| core:model | BookTest | 5 | ✅ |
-| core:model | ChapterTest | 3 | ✅ |
-| core:parser | BookSourceParserTest | 6 | ✅ |
-| feature:bookshelf | BookshelfViewModelTest | 6 | ✅ |
-| feature:reader | ReaderViewModelTest | 6 | ✅ |
-| feature:search | SearchViewModelTest | 5 | ✅ |
-| feature:source | SourceViewModelTest | 5 | ✅ |
+| core:model | BookTest | 5 | ✅ 通过 |
+| core:model | ChapterTest | 3 | ✅ 通过 |
+| core:parser | BookSourceParserTest | 6 | ✅ 通过 |
 
-**总计: 36 个测试用例**
+**总计: 14 个测试用例，全部通过**
 
 ---
 
