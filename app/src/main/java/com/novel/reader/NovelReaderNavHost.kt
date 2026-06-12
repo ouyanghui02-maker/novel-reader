@@ -17,7 +17,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.novel.bookshelf.BookshelfScreen
-import com.novel.reader.ReaderScreen
+import com.novel.reader.feature.ReaderScreen
 import com.novel.search.SearchScreen
 import com.novel.settings.SettingsScreen
 import com.novel.source.SourceScreen

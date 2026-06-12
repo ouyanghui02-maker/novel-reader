@@ -1,4 +1,4 @@
-package com.novel.reader
+package com.novel.reader.feature
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

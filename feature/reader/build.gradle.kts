@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.novel.reader"
+    namespace = "com.novel.reader.feature"
     compileSdk = 34
 
     defaultConfig {
