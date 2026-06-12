@@ -128,7 +128,7 @@ class BookSourceParserTest {
         
         val rule = ContentRule(
             content = "div.content",
-            replaceRegex = listOf("广告文字,")
+            replaceRegex = listOf("广告文字,移除后")
         )
         
         val content = parser.parseChapterContent(html, rule)
