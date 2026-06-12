@@ -20,6 +20,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.novel.model.Book
@@ -57,11 +59,32 @@ fun BookshelfScreen(
                     .padding(padding),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = "书架空空如也\n点击右上角添加书籍",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "📚",
+                        style = MaterialTheme.typography.displayLarge
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "书架空空如也",
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "点击搜索按钮添加你喜欢的小说",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Button(onClick = onSearchClick) {
+                        Icon(Icons.Default.Search, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("搜索书籍")
+                    }
+                }
             }
         } else {
             LazyVerticalGrid(

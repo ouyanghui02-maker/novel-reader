@@ -136,10 +136,87 @@ fun NovelReaderNavHost() {
 
 @Composable
 fun DiscoverScreen(onSourceClick: () -> Unit) {
-    // TODO: Implement discover screen
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "发现",
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "热门书源", style = MaterialTheme.typography.titleMedium)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = "笔趣阁 - 玄幻小说", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "起点中文网 - 全品类", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "番茄小说 - 免费阅读", style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        Button(
+            onClick = onSourceClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("管理书源")
+        }
+    }
 }
 
 @Composable
 fun ProfileScreen(onSettingsClick: () -> Unit) {
-    // TODO: Implement profile screen
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "我的",
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "NovelReader", style = MaterialTheme.typography.titleMedium)
+                Text(text = "v1.0.0", style = MaterialTheme.typography.bodySmall)
+            }
+        }
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "阅读统计", style = MaterialTheme.typography.titleMedium)
+                Text(text = "累计阅读: 0 分钟", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "阅读书籍: 0 本", style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        OutlinedButton(
+            onClick = onSettingsClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("设置")
+        }
+    }
 }
