@@ -22,7 +22,7 @@ import com.novel.search.SearchScreen
 import com.novel.settings.SettingsScreen
 import com.novel.source.SourceScreen
 
-sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
+sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     object Bookshelf : Screen("bookshelf", "书架", Icons.Default.MenuBook)
     object Discover : Screen("discover", "发现", Icons.Default.Explore)
     object Profile : Screen("profile", "我的", Icons.Default.Person)
