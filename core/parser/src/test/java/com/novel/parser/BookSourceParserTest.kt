@@ -19,9 +19,9 @@ class BookSourceParserTest {
         val html = """
             <div class="book-list">
                 <div class="book-item">
-                    <a class="book-name" href="/book/1">斗破苍穹</a>
+                    <a class="book-name" href="https://example.com/book/1">斗破苍穹</a>
                     <span class="book-author">天蚕土豆</span>
-                    <img class="book-cover" src="/cover/1.jpg">
+                    <img class="book-cover" src="https://example.com/cover/1.jpg">
                     <span class="book-intro">异界大陆</span>
                     <span class="book-last-chapter">第一千章</span>
                 </div>
@@ -43,6 +43,8 @@ class BookSourceParserTest {
         assertEquals(1, books.size)
         assertEquals("斗破苍穹", books[0].title)
         assertEquals("天蚕土豆", books[0].author)
+        assertEquals("异界大陆", books[0].intro)
+        assertEquals("第一千章", books[0].latestChapter)
     }
 
     @Test
@@ -61,7 +63,7 @@ class BookSourceParserTest {
             <div class="book-info">
                 <h1 class="book-title">凡人修仙传</h1>
                 <span class="book-author">忘语</span>
-                <img class="book-cover" src="/cover/2.jpg">
+                <img class="book-cover" src="https://example.com/cover/2.jpg">
                 <div class="book-intro">凡人流修仙</div>
                 <span class="book-last-chapter">第二千章</span>
             </div>
@@ -79,15 +81,17 @@ class BookSourceParserTest {
         
         assertEquals("凡人修仙传", book.title)
         assertEquals("忘语", book.author)
+        assertEquals("凡人流修仙", book.intro)
+        assertEquals("第二千章", book.latestChapter)
     }
 
     @Test
     fun `parseChapterList extracts chapters`() {
         val html = """
             <div class="chapter-list">
-                <a href="/chapter/1">第一章</a>
-                <a href="/chapter/2">第二章</a>
-                <a href="/chapter/3">第三章</a>
+                <a href="https://example.com/chapter/1">第一章</a>
+                <a href="https://example.com/chapter/2">第二章</a>
+                <a href="https://example.com/chapter/3">第三章</a>
             </div>
         """.trimIndent()
         
@@ -120,7 +124,7 @@ class BookSourceParserTest {
 
     @Test
     fun `parseChapterContent applies replace rules`() {
-        val html = "<div class=\"content\">广告文字正文内容</div>"
+        val html = "<div class=\"content\">广告文字 正文内容</div>"
         
         val rule = ContentRule(
             content = "div.content",
