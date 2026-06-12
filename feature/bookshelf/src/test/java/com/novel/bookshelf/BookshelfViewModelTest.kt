@@ -115,23 +115,23 @@ class FakeBookDao : BookDao {
     private val books = mutableListOf<Book>()
     val allBooks = MutableStateFlow<List<Book>>(emptyList())
 
-    fun getAllBooks(): Flow<List<Book>> = allBooks
+    override fun getAllBooks(): Flow<List<Book>> = allBooks
 
-    suspend fun getBookByUrl(bookUrl: String) = books.find { it.bookUrl == bookUrl }
+    override suspend fun getBookByUrl(bookUrl: String) = books.find { it.bookUrl == bookUrl }
 
-    fun searchBooks(keyword: String) = kotlinx.coroutines.flow.flow {
+    override fun searchBooks(keyword: String) = kotlinx.coroutines.flow.flow {
         emit(books.filter {
             it.title.contains(keyword, ignoreCase = true) ||
             it.author.contains(keyword, ignoreCase = true)
         })
     }
 
-    suspend fun insertBook(book: Book) {
+    override suspend fun insertBook(book: Book) {
         books.add(book)
         allBooks.value = books.toList()
     }
 
-    suspend fun updateBook(book: Book) {
+    override suspend fun updateBook(book: Book) {
         val index = books.indexOfFirst { it.bookUrl == book.bookUrl }
         if (index != -1) {
             books[index] = book
@@ -139,7 +139,7 @@ class FakeBookDao : BookDao {
         }
     }
 
-    suspend fun deleteBook(book: Book) {
+    override suspend fun deleteBook(book: Book) {
         books.remove(book)
         allBooks.value = books.toList()
     }
@@ -149,7 +149,7 @@ class FakeBookDao : BookDao {
         allBooks.value = books.toList()
     }
 
-    suspend fun updateReadProgress(bookUrl: String, time: Long, chapter: String, progress: Float) {
+    override suspend fun updateReadProgress(bookUrl: String, time: Long, chapter: String, progress: Float) {
         val index = books.indexOfFirst { it.bookUrl == bookUrl }
         if (index != -1) {
             books[index] = books[index].copy(
