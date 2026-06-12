@@ -4,6 +4,7 @@ import com.novel.database.dao.BookDao
 import com.novel.model.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.*
@@ -110,7 +111,7 @@ class BookshelfViewModelTest {
     )
 }
 
-class FakeBookDao {
+class FakeBookDao : BookDao {
     private val books = mutableListOf<Book>()
     val allBooks = MutableStateFlow<List<Book>>(emptyList())
 
@@ -140,6 +141,11 @@ class FakeBookDao {
 
     suspend fun deleteBook(book: Book) {
         books.remove(book)
+        allBooks.value = books.toList()
+    }
+
+    override suspend fun deleteBookByUrl(bookUrl: String) {
+        books.removeAll { it.bookUrl == bookUrl }
         allBooks.value = books.toList()
     }
 
